@@ -4,12 +4,15 @@
 	<?php 
 		/* Sample form using bootstrap */
 		include 'resources/bslinks.php';
+<<<<<<< HEAD
 		//get authors data
 		$a = "select * from authors order by l_name, f_name";
 		require_once 'liblogin.php';
 		$conn = new mysqli($hostname, $user, $pword, $database, 3305, '/Applications/MAMP/tmp/mysql/mysql.sock');
 		if ($conn->connect_error) die($conn->connect_error);
 		$result = $conn->query($a);
+=======
+>>>>>>> 9c0047b6cc432663b2a189a00df23e630d0e49fb
 	 ?>	
 	 <link rel="stylesheet" href="css/main-php.css">
 </head>
@@ -40,6 +43,7 @@
 						<input type="text" class="form-control" id="address2" name="address2" placeholder="Address Line 2">
 					</div>
 				</div>
+<<<<<<< HEAD
 				<div class="form-group">
 					<label for="city" class="control-label col-sm-3">City, State Zip</label>
 					<div class="col-sm-3">
@@ -62,6 +66,9 @@
 					echo "<p>" . $r['f_name'] . "</p>";
 				}
 			?>
+=======
+			</form>
+>>>>>>> 9c0047b6cc432663b2a189a00df23e630d0e49fb
 		</div> <!-- row -->
 	</div> <!-- container -->
 	</div> <!-- content -->
