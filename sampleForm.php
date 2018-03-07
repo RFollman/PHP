@@ -8,9 +8,10 @@
 		//get authors data
 		$a = "select * from authors order by l_name, f_name";
 		require_once 'liblogin.php';
-		$conn = new mysqli($hostname, $user, $pword, $database, 3305, '/Applications/MAMP/tmp/mysql/mysql.sock');
+		$conn = new mysqli($hostname, $user, $pword, $database, 3306, '/Applications/MAMP/tmp/mysql/mysql.sock');
 		if ($conn->connect_error) die($conn->connect_error);
 		$result = $conn->query($a);
+		echo "<h1>Hello</h1>";
 	 ?>	
 	 <link rel="stylesheet" href="css/main-php.css">
 </head>
@@ -59,11 +60,19 @@
 				</div>
 			</form>
 			<h2>Current Authors</h2>
-			<?php 
-				foreach ($result as $r) {
-					echo "<p>" . $r['f_name'] . "</p>";
-				}
-			?>
+			<?php if ($result): ?>
+				<table class="small table table-condensed table-striped">
+					<thead><tr><th>Name</th><th>City</th></tr></thead>
+					<tbody>
+						<?php foreach ($result as $r): ?>
+							<tr><td><?=$r['f_name'] . " " . $r['l_name']?></td><td><?=$r['city']?></td></tr>
+						<?php endforeach ?>
+					</tbody>
+				</table>
+			<?php else: ?>
+				<p>No records</p>
+			<?php endif ?>
+			
 
 			</form>
 		</div> <!-- row -->

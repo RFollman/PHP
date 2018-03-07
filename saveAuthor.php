@@ -1,7 +1,7 @@
 <?php 
 	/*saveAuthor | saves data from sampleForm | 3/5/18*/
 	require_once 'liblogin.php';
-	$conn = new mysqli($hostname, $user, $pword, $database, 3305, '/Applications/MAMP/tmp/mysql/mysql.sock');
+	$conn = new mysqli($hostname, $user, $pword, $database, 3306, '/Applications/MAMP/tmp/mysql/mysql.sock');
 	if ($conn->connect_error) die($conn->connect_error);
 
 	//store post data to array
