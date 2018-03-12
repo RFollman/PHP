@@ -13,6 +13,8 @@
 	$data['state'] = $_POST['state'];
 	$data['zip'] = $_POST['zip'];
 
+	//validation goes here
+
 	//each array key is a field name; use that to set up query
 	$q = "insert into `authors` (`";
 	$qd = ") values ('";

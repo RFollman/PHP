@@ -6,11 +6,16 @@
 		include 'resources/bslinks.php';
 
 		//get authors data
-		/*$a = "select * from authors order by l_name, f_name";
+
+		$aidq = "select * from authors where author_id = " . $_GET['aid'];
+		$a = "select * from authors order by l_name, f_name";
 		require_once 'liblogin.php';
 		$conn = new mysqli($hostname, $user, $pword, $database, 3306, '/Applications/MAMP/tmp/mysql/mysql.sock');
 		if ($conn->connect_error) die($conn->connect_error);
-		$result = $conn->query($a);*/
+		$result = $conn->query($a);
+		$conn = new mysqli($hostname, $user, $pword, $database, 3306, '/Applications/MAMP/tmp/mysql/mysql.sock');
+		$ai = $conn->query($aidq);
+		/*echo $ai['f_name']; die();*/
 		/*echo "<h1>Hello</h1>";*/
 	 ?>	
 	 <link rel="stylesheet" href="css/main-php.css">
@@ -24,10 +29,10 @@
 				<div class="form-group">
 					<label for="f_name" class="control-label col-sm-3">Author's Name</label>
 					<div class="col-sm-3">
-						<input type="text" class="form-control" id="f_name" name="f_name" placeholder="First Name" maxlength="25">
+						<input type="text" class="form-control" id="f_name" name="f_name" placeholder="First Name" maxlength="25" value="<?=$ai['f_name']?>">
 					</div>
 					<div class="col-sm-4">
-						<input type="text" class="form-control" id="l_name" name="l_name" placeholder="Last Name" maxlength="35">
+						<input type="text" class="form-control" id="l_name" name="l_name" placeholder="Last Name" maxlength="35" value="<?=$ai['l_name']?>">
 					</div>
 				</div>
 				<div class="form-group">
@@ -62,10 +67,10 @@
 			<h2>Current Authors</h2>
 			<?php if ($result): ?>
 				<table class="small table table-condensed table-striped">
-					<thead><tr><th>Name</th><th>City</th></tr></thead>
+					<thead><tr><th>Name</th><th>City, State</th></tr></thead>
 					<tbody>
 						<?php foreach ($result as $r): ?>
-							<tr><td><?=$r['f_name'] . " " . $r['l_name']?></td><td><?=$r['city']?></td></tr>
+							<tr><td><a href="sampleForm.php?aid=<?=$r['author_id']?>"><?=$r['f_name'] . " " . $r['l_name']?></a></td><td><?=$r['city'] . ", " . $r['state']?></td></tr>
 						<?php endforeach ?>
 					</tbody>
 				</table>
