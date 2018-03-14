@@ -5,16 +5,24 @@
 		/* Sample form using bootstrap */
 		include 'resources/bslinks.php';
 
-		//get authors data
+		//get authors data 
 
 		$aidq = "select * from authors where author_id = " . $_GET['aid'];
 		$a = "select * from authors order by l_name, f_name";
-		require_once 'liblogin.php';
-		$conn = new mysqli($hostname, $user, $pword, $database, 3306, '/Applications/MAMP/tmp/mysql/mysql.sock');
+		/*require_once 'liblogin.php';*/
+		
+		$conn = new mysqli('localhost', 'root', 'root', 'library');
 		if ($conn->connect_error) die($conn->connect_error);
 		$result = $conn->query($a);
-		$conn = new mysqli($hostname, $user, $pword, $database, 3306, '/Applications/MAMP/tmp/mysql/mysql.sock');
-		$ai = $conn->query($aidq);
+		$row = $result->fetch_assoc();
+		
+/*$result->close();*/
+		$ai = "select * from authors where author_id = 1";
+		$ar = $conn->query($ai);
+		$row = $ar->fetch_assoc();
+		/*echo $row['l_name'];*/
+/*		$conn = new mysqli($hostname, $user, $pword, $database, 3306, '/Applications/MAMP/tmp/mysql/mysql.sock');*/
+		/*$ai = $conn->query($aidq);*/
 		/*echo $ai['f_name']; die();*/
 		/*echo "<h1>Hello</h1>";*/
 	 ?>	
@@ -29,10 +37,10 @@
 				<div class="form-group">
 					<label for="f_name" class="control-label col-sm-3">Author's Name</label>
 					<div class="col-sm-3">
-						<input type="text" class="form-control" id="f_name" name="f_name" placeholder="First Name" maxlength="25" value="<?=$ai['f_name']?>">
+						<input type="text" class="form-control" id="f_name" name="f_name" placeholder="First Name" maxlength="25" value="<?=$row['f_name']?>">
 					</div>
 					<div class="col-sm-4">
-						<input type="text" class="form-control" id="l_name" name="l_name" placeholder="Last Name" maxlength="35" value="<?=$ai['l_name']?>">
+						<input type="text" class="form-control" id="l_name" name="l_name" placeholder="Last Name" maxlength="35" value="<?=$row['l_name']?>">
 					</div>
 				</div>
 				<div class="form-group">
