@@ -15,11 +15,11 @@
 		if ($conn->connect_error) die($conn->connect_error);
 		$result = $conn->query($a);
 		$row = $result->fetch_assoc();
-		$ai = "select * from authors where author_id = 1";
+		$ai = "select * from authors where author_id = 3";
 		$ar = $conn->query($ai);
 		$row = $ar->fetch_assoc();
 
-		
+
 	 ?>	
 	 <link rel="stylesheet" href="css/main-php.css">
 </head>

@@ -19,13 +19,21 @@
 		
 	}
 
-	$data['f_name'] = strlen(trim($_POST['f_name']));
+	foreach ($_POST as $key => $value) {
+		$data[$key] = $value;
+	}
+	
+	/*$newdata = array(
+		'f_name' => 
+	);
+
+	$data['f_name'] = strlen(trim($_POST['f_name23']));
 	$data['l_name'] = $_POST['l_name'];
 	$data['address1'] = $_POST['address1'];
 	$data['address2'] = $_POST['address2'];
 	$data['city'] = $_POST['city'];
 	$data['state'] = $_POST['state'];
-	$data['zip'] = $_POST['zip'];
+	$data['zip'] = $_POST['zip'];*/
 
 	//validation goes here
 
