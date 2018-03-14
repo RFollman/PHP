@@ -18,6 +18,8 @@
 		$ai = "select * from authors where author_id = 1";
 		$ar = $conn->query($ai);
 		$row = $ar->fetch_assoc();
+
+		
 	 ?>	
 	 <link rel="stylesheet" href="css/main-php.css">
 </head>
@@ -30,7 +32,8 @@
 				<div class="form-group">
 					<label for="f_name" class="control-label col-sm-3">Author's Name</label>
 					<div class="col-sm-3">
-						<input type="text" class="form-control" id="f_name" name="f_name" placeholder="First Name" maxlength="25" value="<?=$row['f_name']?>">
+						<input type="text" class="form-control" id="f_name" name="f_name" placeholder="First Name" value="<?=$row['f_name']?>">
+						<span id="f_nameError"></span>
 					</div>
 					<div class="col-sm-4">
 						<input type="text" class="form-control" id="l_name" name="l_name" placeholder="Last Name" maxlength="35" value="<?=$row['l_name']?>">
@@ -89,5 +92,6 @@
 <?php 
 	include 'resources/bsfooter.php';
 ?>	
+<script type="text/javascript" src="resources/valid.js"></script>
 </body>
 </html>

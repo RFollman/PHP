@@ -7,10 +7,19 @@
 	foreach ($_POST as $key => $value) {
 		echo $key . " => " . $value . "<br>";
 	}
-	die();
-
+	
 	//store post data to array
-	$data['f_name'] = $_POST['f_name'];
+	function checkData($data, $len, $fldname) {
+		//check length of string
+		if (strlen(trim($data)) > $len) {
+			//return the data and an error
+		} else {
+			$insData[$fldname] = trim($data);
+		}
+		
+	}
+
+	$data['f_name'] = strlen(trim($_POST['f_name']));
 	$data['l_name'] = $_POST['l_name'];
 	$data['address1'] = $_POST['address1'];
 	$data['address2'] = $_POST['address2'];
