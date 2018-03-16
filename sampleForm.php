@@ -34,6 +34,7 @@
 					<label for="f_name" class="control-label col-sm-3">Author's Name</label>
 					<div class="col-sm-3">
 						<input type="text" onchange="validText(this.value, this.name)" class="form-control" id="f_name" name="f_name" placeholder="First Name" value="<?=$row['f_name']?>">
+						<span class="small text-warning" id="f_nameerr"></span>
 					</div>
 					<div class="col-sm-4">
 						<input type="text" onchange="validText(this.value, this.name)" class="form-control" id="l_name" name="l_name" placeholder="Last Name" maxlength="35" value="<?=$row['l_name']?>">
@@ -65,7 +66,7 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<input type="submit" value="Submit" class="btn btn-warning pull-right">
+					<input type="submit" value="Submit" class="btn btn-info pull-right">
 				</div>
 			</form>
 			<h2>Current Authors</h2>
