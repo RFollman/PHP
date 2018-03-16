@@ -29,6 +29,7 @@
 		<div class="row">
 			<h1>Enter Author Data</h1><br>
 			<form action="saveAuthor.php" method="post" class="form-horizontal">
+				<input id="author_id" type="hidden" name="author_id" value="<?=$row['author_id']?>">
 				<div class="form-group">
 					<label for="f_name" class="control-label col-sm-3">Author's Name</label>
 					<div class="col-sm-3">

@@ -16,16 +16,26 @@
 	$data['zip'] = $_POST['zip'];
 
 	//each array key is a field name; use that to set up query
-	$q = "insert into `authors` (`";
-	$qd = ") values ('";
-	foreach ($data as $fldName => $postdata) {
-		$q .= $fldName . "`, `";
-		$qd .= $postdata . "', '";
-	}
-	$qstr = substr($q,0,-3) . substr($qd,0,-3) . ");";
-	echo $qstr . "<br>";
-	$result = $conn->query($qstr);
 
+	if ($_POST['author_id']) {
+		$q = "update `authors` set "; 
+		foreach ($data as $fldName => $postdata) {
+			$q .= $fldName . " = '" . $postdata . "', ";
+		}
+		$q = substr($q,0,-2);
+		$q .= " where author_id = " . $_POST['author_id'];
+		$tryit = $conn->query($q);
+	} else {
+		$q = "insert into `authors` (`";
+		$qd = ") values ('";
+		foreach ($data as $fldName => $postdata) {
+			$q .= $fldName . "`, `";
+			$qd .= $postdata . "', '";
+		}
+		$qstr = substr($q,0,-3) . substr($qd,0,-3) . ");";
+		echo $qstr . "<br>";
+		$result = $conn->query($qstr);
+	}
 	header('Location: sampleForm.php');
 	$q = "select * from authors";
 
