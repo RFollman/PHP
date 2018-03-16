@@ -4,6 +4,8 @@
 	$conn = new mysqli($hostname, $user, $pword, $database, 3306, '/Applications/MAMP/tmp/mysql/mysql.sock');
 	if ($conn->connect_error) die($conn->connect_error);
 
+	//ss validation goes here
+	
 	//store post data to array
 	$data['f_name'] = $_POST['f_name'];
 	$data['l_name'] = $_POST['l_name'];
@@ -12,8 +14,6 @@
 	$data['city'] = $_POST['city'];
 	$data['state'] = $_POST['state'];
 	$data['zip'] = $_POST['zip'];
-
-	//validation goes here
 
 	//each array key is a field name; use that to set up query
 	$q = "insert into `authors` (`";
@@ -26,6 +26,7 @@
 	echo $qstr . "<br>";
 	$result = $conn->query($qstr);
 
+	header('Location: sampleForm.php');
 	$q = "select * from authors";
 
 	$result = $conn->query($q);
