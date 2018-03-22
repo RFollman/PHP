@@ -67,8 +67,10 @@
 				</div>
 				<div class="form-group">
 					<input type="submit" value="Submit" class="btn btn-info pull-right">
+					<a href="tableInfo.php" class="btn btn-warning pull-right">Show Table Details</a>
 				</div>
 			</form>
+			<section class="col-sm-6 col-sm-offset-3">
 			<h2>Current Authors</h2>
 			<?php if ($result): ?>
 				<table class="small table table-condensed table-striped">
@@ -82,7 +84,7 @@
 			<?php else: ?>
 				<p>No records</p>
 			<?php endif ?>
-			
+			</section>
 
 			</form>
 		</div> <!-- row -->
