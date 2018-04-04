@@ -34,7 +34,7 @@
 		echo $qstr . "<br>";
 		$result = $conn->query($qstr);
 	}
-	/*header('Location: addBooks.php');*/
+	header('Location: addBooks.php');
 	$q = "select * from books";
 
 	$result = $conn->query($q);
