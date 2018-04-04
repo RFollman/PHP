@@ -43,7 +43,7 @@
 							</thead>
 							<tbody>
 								<?php foreach ($finfo as $r): ?>
-									<tr><td><?=$r->name?></td><td class="text-right"><?=$r->length?></td><td class="text-right"><?=transType($r->type)?></td></tr>
+									<tr><td><?=$r->name?></td><td class="text-right"><?=$r->length?></td><td class="text-right"><?=$r->type?></td></tr>
 								<?php endforeach ?>
 							</tbody>
 						</table>
