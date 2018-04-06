@@ -2,12 +2,14 @@
 	include 'resources/bslinks.php';
 	$a = "select l_name, f_name, author_id from authors order by l_name, f_name";
 	$b = "select * from books order by title";
+	$g = "select distinct genre from books order by genre";
 	$row = null;
 	require_once 'liblogin.php';
 	$conn = new mysqli($hostname, $user, $pword, $database);
 	if ($conn->connect_error) die($conn->connect_error);
 	$author = $conn->query($a);
 	$books = $conn->query($b);
+	$genre = $conn->query($g);
 	if ($_GET['bid']) {
 		$bidq = "select * from books where book_id = " . $_GET['bid'];
 		$ar = $conn->query($bidq);
@@ -63,7 +65,8 @@
 				<div class="form-group">
 					<label for="genre" class="control-label col-sm-3">Genre of Publication</label>
 					<div class="col-sm-4">
-						<input type="text" name="genre" class="form-control" id="genre" value="<?=$row['genre']?>">
+						<?=dropdown('genre', $genre, $row['genre'])?>
+						<input type="text" name="genre" class="form-control hidden" id="genre" value="<?=$row['genre']?>">
 					</div>
 				</div>
 				<div class="form-group">

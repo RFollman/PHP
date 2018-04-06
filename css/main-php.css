@@ -15,7 +15,9 @@ body {
 	position: fixed;
 }
 
-
+.hidden {
+	display: none;
+}
 /** Important message box **/
 
 .important-message {

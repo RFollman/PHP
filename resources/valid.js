@@ -6,6 +6,16 @@
 $(document).ready(function() {
 	//define form elements
 
+	$('#genredd').change(function() {
+		let tmpgenre = $('#genredd').val();
+		/*alert(tmpgenre);*/
+		if (+tmpgenre === 99) {
+			//add class to dropdown
+			$('#genredd').addClass('hidden');
+			//remove class from text input
+			$('#genre').removeClass('hidden');
+		}
+	});
 	//trim input, test length
 
 });
@@ -23,3 +33,5 @@ $(document).ready(function() {
 		}
 		console.log(len);
 	};
+
+

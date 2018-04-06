@@ -27,6 +27,12 @@
 						case '253':
 							return 'Varchar';
 							break;
+						case '10':
+							return "Date";
+							break;
+						case '1':
+							return "Boolean";
+							break;
 						default:
 							return 'Error: ' . $t . ' not found.';
 							break;
