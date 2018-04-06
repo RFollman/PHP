@@ -50,6 +50,9 @@
 							<?php endforeach ?>
 						</select>
 					</div>
+					<div class="col-sm-5">
+						<a href="sampleForm.php" class="btn btn-warning">Add New Author</a>
+					</div>
 				</div>
 				<div class="form-group">
 					<label for="pub_date" class="control-label col-sm-3">Date of Publication</label>
@@ -71,6 +74,7 @@
 				</div>
 				<div class="form-group">
 					<input type="submit" value="Submit" class="btn btn-info pull-right">
+					<a href="tableInfo.php" class="btn btn-warning pull-right">Show Table Details</a>
 				</div>
 			</form>
 			<section class="col-sm-6 col-sm-offset-3">
@@ -78,10 +82,10 @@
 			
 			<?php if ($books): ?>
 				<table class="small table table-condensed table-striped">
-					<thead><tr><th>Title</th><th>Author</th></tr></thead>
+					<thead><tr><th>Title</th><th>Author</th><th>Book Count</th></tr></thead>
 					<tbody>
 						<?php foreach ($books as $r): ?>
-							<tr><td><a href="addBooks.php?bid=<?=$r['book_id']?>"><?=$r['title']?></a></td><td><?=authorName($r['author'])?></td></tr>
+							<tr><td><a href="addBooks.php?bid=<?=$r['book_id']?>"><?=$r['title']?></a></td><td><?=authorName($r['author'], $conn)?></td><td class="text-right"><?=bookCount($r['author'], $conn)?></td></tr>
 						<?php endforeach ?>
 					</tbody>
 				</table>
