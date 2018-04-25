@@ -5,7 +5,7 @@
 	$g = "select distinct genre from books order by genre";
 	$row = null;
 	require_once 'liblogin.php';
-	$conn = new mysqli($hostname, $user, $pword, $database);
+	$conn = new mysqli($hostname, $user, $pword, $database, $port);
 	if ($conn->connect_error) die($conn->connect_error);
 	$author = $conn->query($a);
 	$books = $conn->query($b);

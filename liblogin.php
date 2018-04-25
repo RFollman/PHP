@@ -4,4 +4,5 @@
 	$database = 'library';
 	$user = 'root';
 	$pword = 'root';
+	$port = 3305;
  ?>
