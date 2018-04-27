@@ -4,9 +4,9 @@
 	<?php 
 		/* Sample form using bootstrap */
 		session_start();
-		/*$_SESSION['f_name'] = null;
+		$_SESSION['f_name'] = null;
 		$_SESSION['l_name'] = null;
-		$_SESSION['color'] = null;*/
+		$_SESSION['color'] = null;
 		$_SESSION['name'] = 'Testing';
 		include 'resources/bslinks.php';
 	 ?>	

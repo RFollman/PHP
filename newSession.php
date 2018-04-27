@@ -3,9 +3,9 @@
 	<title>All About the Session</title>
 	<?php 
 		session_start();
-		/*$_SESSION['f_name'] = $this->input->post('f_name');
-		$_SESSION['l_name'] = $this->input->post('l_name');
-		$_SESSION['color'] = $this->input->post('color');*/
+		$_SESSION['f_name'] = $_POST['f_name'];
+		$_SESSION['l_name'] = $_POST['l_name'];
+		$_SESSION['color'] = $_POST['color'];
 		include 'resources/bslinks.php';
 	?>
 	 <link rel="stylesheet" href="css/main-php.css">
@@ -13,7 +13,6 @@
 <body>
 	<div class="content">
 		<div class="container">
-			<?=$_SESSION['name']?>
 			<h1>Your Session Variables</h1>
 			<div class="col-sm-6">
 				<h3>Great choices, <?=$_SESSION['f_name']?>!</h3>
@@ -22,6 +21,7 @@
 				<h3>Here is a big box full of color!</h3>
 <style>
 #rectangle {
+	margin-top: 5px;
 	width: 200px;
 	height: 100px;
 	background: <?=$_SESSION['color']?>;
